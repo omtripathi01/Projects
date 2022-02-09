@@ -18,9 +18,6 @@ void display(vector<T>a){
 }
 int minPlatform(vector<float>arv, vector<float>dep){
 
-    // int countPlatform = 1; // as atleast we need 1 platform for a train
-    // int unoccupiedPlatform = 1;
-    // int occupiedPlatform = 0;
     vector<float>platforms;  // it represents if train is at some platform then at what time
                              // it will depart
     platforms.push_back(dep[0]);
@@ -39,6 +36,8 @@ int minPlatform(vector<float>arv, vector<float>dep){
             platforms.push_back(dep[i]);
         }
         display(platforms);
+
+        
     }
     return platforms.size();
 

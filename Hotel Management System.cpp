@@ -28,7 +28,7 @@ public:
 }
 	void accept();				//ACCEPT CUSTOMER DETAILS
 	void display();				//DISPLAY CUSTOMER DETAILS
-	friend class room;
+	friend class Room;
 	friend class Hotel;
 };
 void Customer::accept()		//ACCEPTING CUSTOMER DETAILS
@@ -109,7 +109,7 @@ void Room::acceptroom(int rno)		//ACCEPTING ALL ROOM DETAILS
 		cout<<"Please Re-enter Type Comfort Suite or Normal (S/N) : ";
 		cin>>type;
 	}
-	cout<<"Type Size (B/S) : ";
+	cout<<"Type Size (B/S) : ";    //BASIC BED OR STANDARD BED
 	cin>>stype;
 	while(stype!='B'&& stype!='S')
 	{

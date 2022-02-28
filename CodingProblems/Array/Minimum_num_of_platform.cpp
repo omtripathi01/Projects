@@ -22,7 +22,7 @@ int minPlatform(vector<float>arv, vector<float>dep){
                              // it will depart
     platforms.push_back(dep[0]);
     bool updated = true;
-    display(platforms);
+    // display(platforms);
     for(int i=1;i<arv.size();i++){
         updated = true;
         for(int j=0;j<platforms.size();j++){
@@ -35,20 +35,45 @@ int minPlatform(vector<float>arv, vector<float>dep){
         if(updated){
             platforms.push_back(dep[i]);
         }
-        display(platforms);
-
-        
+        // display(platforms);
     }
     return platforms.size();
 
 }
+
+//Idea:- We will simply increment the count of platform when train arrives and decrement the count
+// when train departs and keep on checking the max num of platforms we require by updating the 
+// resSoFar
+int minPlatforms1(vector<float>&arrival, vector<float>&departure){
+
+    sort(arrival.begin(), arrival.end());
+    sort(departure.begin(), departure.end());
+
+    int mnPlatforms = 0, resSoFar = 0, i = 0, j = 0;
+    while(i<arrival.size() && j<departure.size()){
+        if(arrival[i] < departure[j]){
+            // train is coming
+            i++;
+            mnPlatforms++;
+        }else{
+            // train is leaving 
+            j++;
+            mnPlatforms--;
+        }
+        resSoFar = max(resSoFar, mnPlatforms);
+    } 
+
+    return resSoFar;
+}
+
 
 int main()
 {
     vector<float>arv = {9.00, 9.15, 9.40, 9.45, 10.00};
     vector<float>dep = {9.40, 10.00, 9.50, 9.50, 10.30};
 
-    cout<<"\nMinimum number of platform required: "<<minPlatform(arv, dep)<<"\n\n";
+    cout<<"\nMinimum number of platform required: "<<minPlatform(arv, dep)<<" "
+        <<minPlatforms1(arv,dep)<<"\n\n";
 
 
     return 0;

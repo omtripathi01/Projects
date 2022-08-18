@@ -20,20 +20,13 @@ void check(vector<int>&a1, vector<int>&a2){
     }else{
         cout<<"Not a subsequence"<<endl;
     }
-
 }
 
 int main(){
 
     vector<int>arr1 = {5,1,22,25,6,-1,8,10};
-    vector<int>arr2 = {1,6,-1,10,11};
-
+    vector<int>arr2 = {1,6,-1,10};
     check(arr1,arr2);
-
-
-  
-
-
-
     return 0;
+    
 }

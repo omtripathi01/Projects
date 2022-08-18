@@ -22,11 +22,28 @@ void check(vector<int>&a1, vector<int>&a2){
     }
 }
 
+// clean code
+
+bool check1(vector<int>&a1, vector<int>&a2){
+    int index=0;
+    for(int number : a1){
+        if(number == a2[index]){
+            index++;
+        }
+        if(index == a2.size()){
+            return true;
+        }
+    }
+    return false;
+}
+
 int main(){
 
     vector<int>arr1 = {5,1,22,25,6,-1,8,10};
     vector<int>arr2 = {1,6,-1,10};
     check(arr1,arr2);
+    check1(arr1, arr2)?cout<<"Is a Subsequence"<<endl:cout<<"Not a subsequence"<<endl;
+
     return 0;
     
 }
